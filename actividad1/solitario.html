@@ -1,52 +1,59 @@
 <!DOCTYPE html>
-
-<html>
+<html lang = "es">
 	<head>
-		<title>Solitario VIU</title>
-        <meta charset="utf-8">        
+		<title>Solitario VIU - Juego de tronos</title>
+        <meta charset="utf-8">
+		<!-- Icono personalizado del a casa Targaryen -->
+		<link rel="icon" type="image/jpg" href="imagenes/ico-targaryen.ico"/>
+		<!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<!-- Estilos personalizados -->
+		<link rel="stylesheet" href="css/solitario.css">		
+		<!-- jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<!-- Bootstrap JS -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-        <!--/*** !!!!!!!!!!!!!!!!!!! CODIGO !!!!!!!!!!!!!!!!!!!! **/
-		Invocar a los ficheros de estilos y al JavaScript donde proceda
-        -->     
+		<!-- Fuente -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+		<!-- Lógica principal de la aplicación -->
+		<script type="text/javascript" src="js/solitario.js"></script>
 	</head>
 
     <body>
-		<div class="central">
+		<input type="hidden" id="cartaElegida">
+		<div class="container">
 			<!-- Título principal -->
-
-			<!--/*** !!!!!!!!!!!!!!!!!!! CODIGO !!!!!!!!!!!!!!!!!!!! **/
-			Rellenar h1 e insertar el logo donde proceda
-        	-->
-			<h1 id="titulo"></h1>
-			
-			<!-- Siguiente línea donde se indicará el tiempo transcurrido y la cantidad
-				de movimientos que se han hecho hasta el momento. Estos números se 
-				indicarán en los span internos -->
-			<h2 id="marcadores">
-				<span>Tiempo: <span id="contador_tiempo"></span></span>
-				<span style="display:inline-block; width:200px"></span>
-				<span>Movimientos: <span id="contador_movimientos" class=""></span></span>
-			</h2>
-
+			<div class="row">
+				<div class="col-md-3"><img width="150px" src="imagenes/logoVIU.png" alt="VIU"></div>
+				<div class="col-md-6"><br/>
+						<span >Tiempo: <span id="contador_tiempo"></span></span>
+						<span class="separador"></span>
+						<span>Movimientos: <span id="contador_movimientos" class="">0</span></span>
+				</div>
+			</div>
 			<!-- La "mesa" contendrá los 6 tapetes. En la parte superior dos de ellos 
 				y en la parte inferior los cuatro restantes. Los contadores de los
 				mazos de cartas de cada tapete están indicados oportunamente dentro
 				de elementos span -->
-			<div id="mesa">
+			<div class="row">
+			<div id="mesa" class="col-md-9">
 				<div class="tapetes_superiores">
-					<div id="inicial" class="tapete"><span id="contador_inicial" class="contador"></span></div><!--
-					--><div id="sobrantes" class="tapete"><span id="contador_sobrantes" class="contador"></span></div>
+					<div id="inicial" class="tapete"><span id="contador_inicial" class="contador">0</span></div><!--
+					--><div id="sobrantes" class="tapete"><span id="contador_sobrantes" class="contador">0</span></div>
 				</div>
-				<div id="receptor1" class="tapete receptor"><span id="contador_receptor1" class="contador"></span></div><!--
-				--><div id="receptor2" class="tapete receptor"><span id="contador_receptor2" class="contador"></span></div><!--
-				--><div id="receptor3" class="tapete receptor"><span id="contador_receptor3" class="contador"></span></div><!--
-				--><div id="receptor4" class="tapete receptor"><span id="contador_receptor4" class="contador"></span></div>			
-			</div>	
+				<div id="receptor1" class="tapete receptor"><span id="contador_receptor1" class="contador">0</span></div><!--
+				--><div id="receptor2" class="tapete receptor"><span id="contador_receptor2" class="contador">0</span></div><!--
+				--><div id="receptor3" class="tapete receptor"><span id="contador_receptor3" class="contador">0</span></div><!--
+				--><div id="receptor4" class="tapete receptor"><span id="contador_receptor4" class="contador">0</span></div>
+			</div>
+			<div class="col-md-2">
+				<!-- Botón de reset que reinicia -->
+				<button id="reset" class="btn btn-danger">Reiniciar</button>
+			</div>
 
-			<!-- Botón de reset que reinicia todo: partida, contadores de tiempo, de movimientos, ... -->
-			<button id="reset" class="btn btn-danger">Reiniciar</button>
+			</div>
 		</div> <!-- class="central" -->
     </body>
 </html>

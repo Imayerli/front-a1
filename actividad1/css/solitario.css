@@ -2,29 +2,42 @@
 	Especificaciones CSS para el juego del solitario 
 */
 
-/* /*** !!!!!!!!!!!!!!!!!!! CODIGO !!!!!!!!!!!!!!!!!!!! 
-	Completar los estilos que faltan y modificar al gusto del alumno
-**/
 
-/* Todos los contadores estarán ubicados en la parte inferior 
+/**
+	Primer estilo donde incluimos el fondo de casino con un 100% auto 
+	para que se vea mejor y traemos la fuente de Google web fonts
+*/
+
+body {
+	background-color: #fcf5f4;
+	background-size: 100% auto;
+	font-family: 'Verdana, sans-serif';
+}
+/* Todos los contadores estarán ubicados en la parte inferior
    derecha (position absolute) de los respectivos tapetes (position relative).
 */
 .contador {
 	position: absolute;
-	bottom: 0px;
-	right: 3px;
+    bottom: 0px;
+    right: -5px;
+    font-size: 16px;
+    background: #e65014;
+    border-radius: 50%;
+    width: 20px;
+    color: white;
+    height: 20px;
+    z-index: 1;
 }
-
 
 /* Centrado del título y color */
 h1#titulo {
-	text-align: center;
 	color: #E65014;
+	font-weight: bold;
 }
 
-/* Centrado de los marcadores de tiempo y movimientos */
-h2#marcadores{ 
-	text-align: center; 
+/* */
+span{
+	font-size: 22px;
 }
 
 /* Mesa que contiene a los tapetes centrados */
@@ -40,13 +53,20 @@ div.tapete{
 	display: inline-block;
 	position: relative;
 	margin: 10px;
+	-webkit-box-shadow: -2px 12px 33px -8px rgba(0,0,0,0.75);
+	-moz-box-shadow: -2px 12px 33px -8px rgba(0,0,0,0.75);
+	box-shadow: -2px 12px 33px -8px rgba(0,0,0,0.75);
+	border-radius: 5px;
 }
 
 /* Dimensiones y color de fondo para el tapete inicial */
 div.tapete#inicial{
-	width: 340px;
-	height: 340px;			
-	background-color: lightgrey;
+	width: 600px;
+	height: 450px;
+	background-color: white;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 /* Dimensiones para todos los tapetes salvo el inicial */
@@ -57,10 +77,63 @@ div.tapete:not(#inicial){
 
 /* Color de fondo para el tapete de las cartas sobrantes */
 div.tapete#sobrantes{
-	background-color: lightblue;
+	background-color: white;
+	background-size: 100% 100%;
 }
 
 /* Color de fondo de los tapetes receptores */
 div.tapete.receptor{
-	background-color: lightgreen;
+	background-color: #debb70;
+	background-size: 100% 100%;
+}
+
+/* Imagenes hijas dentro del tapete inicial */
+img.cartasTapeteInicial {
+	width: 15%;
+	position: absolute;
+	left: 0;
+   	border-radius: 10px;
+	border: 1px solid #8a6d3b;
+	-webkit-box-shadow: -2px 12px 33px -8px rgba(0,0,0,0.75);
+	-moz-box-shadow: -2px 12px 33px -8px rgba(0,0,0,0.75);
+	box-shadow: -2px 12px 33px -8px rgba(0,0,0,0.75);
+}
+
+/* Estilo para resaltar la carta en movimiento */
+img.moviendoCarta {
+  border: solid 2px orange;
+  /* En esta parte decidimos incluir una animación, 
+  que se repita 10 veces cada segundo con el objetivo de que
+  el jugador vea que carta ha seleccionado y esta esperando ser dropeada  */
+  animation: latidos 1s 10;
+}
+
+/* Estilo para separar el tiempo de los movimientos */
+span.separador {
+	display:inline-block; 
+	width:200px;
+}
+
+/* Contenedor de botón reiniciar */
+div.reiniciar {
+	text-align: center;
+    margin-top: 50px;
+}
+
+/* Números de contadores de cartas */
+span#contador_tiempo, span#contador_movimientos {
+	font-weight: bold;
+}
+
+/* Estilo para bloquear los demás elementos */
+img.blocked {	
+	pointer-events: none;
+	opacity: 0.5;
+}
+
+/* Animación con keyframe llamada "latidos" usada en el movimiento de la carta*/
+@keyframes latidos {
+    from { transform: none; }
+    50% { transform: scale(1.4); }
+    to { transform: none; }
 }
